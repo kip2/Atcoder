@@ -1,8 +1,9 @@
 # Atcoder
 
-主にRust用のAtcoder置き場とする
+主にRust用のAtcoder置き場
 
-他の言語の管理については、思いついた段階でおいおい追加していくことにすること
+ツールとしては[cargo compete](https://github.com/qryxip/cargo-compete/tree/master)を使用している
+
 
 ---
 
