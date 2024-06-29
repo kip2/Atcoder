@@ -2,7 +2,7 @@
 
 主にRust用のAtcoder置き場
 
-ツールとしては[cargo compete](https://github.com/qryxip/cargo-compete/tree/master)を使用している
+ツールとしては[cargo-compete](https://github.com/qryxip/cargo-compete/tree/master)を使用している
 
 
 ---
