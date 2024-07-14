@@ -21,7 +21,7 @@ fn main() {
         right_c_sum[i] = max(a[i], right_c_sum[i + 1]);
     }
 
-    for i in 0..d {
+    for _ in 0..d {
         input! {
             l:usize,
             r:usize,
