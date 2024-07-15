@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "abc197"
+		},
+		{
 			"path": "abc199"
 		},
 		{
@@ -12,6 +15,7 @@
 	],
 	"settings": {
 		"rust-analyzer.linkedProjects": [
+			"abc197/Cargo.toml",
 			"abc199/Cargo.toml",
 			"tessoku-book/Cargo.toml"
 		]
