@@ -56,3 +56,40 @@ https://zenn.dev/toga/books/rust-atcoder/viewer/input
 [dependencies]
 proconio = "0.4.5"
 ```
+
+## ワークスペースへのコンテストフォルダの追加
+
+まずコンテストフォルダをcompeteを使用して追加する
+
+```sh
+# comtest-name examples: ABC199, ABC621, etc...
+cargo compete new <contest-name>
+```
+
+次に、各コンテストフォルダでrust-analyzerを効かせるために、workspaceへの登録を行う
+
+フォルダパスと、Cargo.tomlのディレクトリを設定する
+
+./Atcoder.code-workspace
+
+```json
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "abc199"
+		},
+		{
+			"path": "tessoku-book"
+		}
+	],
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+			"abc199/Cargo.toml",
+			"tessoku-book/Cargo.toml"
+		]
+	}
+}
+```
