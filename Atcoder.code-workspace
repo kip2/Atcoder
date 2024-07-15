@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "abc199"
+		},
+		{
+			"path": "tessoku-book"
+		}
+	],
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+			"abc199/Cargo.toml",
+			"tessoku-book/Cargo.toml"
+		]
+	}
+}
