@@ -2,6 +2,37 @@ fn main() {
     println!("Hello, world!");
 }
 
+/// 数字を受け取り、昇順に並べ直して数字として返す関数
+///
+fn sort_digits_asc(x: usize) -> usize {
+    let mut digits: Vec<char> = x.to_string().chars().collect();
+    digits.sort();
+
+    let sorted_str: String = digits.into_iter().collect();
+    sorted_str.parse::<usize>().unwrap()
+}
+
+#[test]
+fn test_sort_digits_asc() {
+    assert_eq!(sort_digits_desc(53421), 12345);
+}
+
+/// 数字を受け取り、降順に並べ直して数字として返す関数
+///
+fn sort_digits_desc(x: usize) -> usize {
+    let mut digits: Vec<char> = x.to_string().chars().collect();
+    digits.sort();
+    digits.reverse();
+
+    let sorted_str: String = digits.into_iter().collect();
+    sorted_str.parse::<usize>().unwrap()
+}
+
+#[test]
+fn test_sort_digits_desc() {
+    assert_eq!(sort_digits_desc(53421), 54321);
+}
+
 /// 2次元のchar型の配列から、一列の文字列を作成する
 ///
 /// xで指定した行に対して行う
