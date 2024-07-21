@@ -2,6 +2,31 @@ fn main() {
     println!("Hello, world!");
 }
 
+/// 10進数を8進数に変換する関数
+/// usize -> usize に対応
+///
+fn decimal_to_octal(n: usize) -> usize {
+    let mut division = n;
+    let mut result: Vec<String> = vec![];
+    while division != 0 {
+        result.push((division % 8).to_string());
+        division /= 8;
+    }
+
+    result.reverse();
+
+    result
+        .concat()
+        .parse::<usize>()
+        .expect("Failed to parse string to usize")
+}
+
+#[test]
+fn test_decimal_to_octal() {
+    assert_eq!(decimal_to_octal(1), 1);
+    assert_eq!(decimal_to_octal(83), 123);
+}
+
 /// 数字を受け取り、昇順に並べ直して数字として返す関数
 ///
 fn sort_digits_asc(x: usize) -> usize {
