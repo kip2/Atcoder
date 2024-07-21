@@ -6,6 +6,10 @@ fn main() {
 /// usize -> usize に対応
 ///
 fn decimal_to_octal(n: usize) -> usize {
+    if n == 0 {
+        return 0;
+    }
+
     let mut division = n;
     let mut result: Vec<String> = vec![];
     while division != 0 {
@@ -23,6 +27,7 @@ fn decimal_to_octal(n: usize) -> usize {
 
 #[test]
 fn test_decimal_to_octal() {
+    assert_eq!(decimal_to_octal(0), 0);
     assert_eq!(decimal_to_octal(1), 1);
     assert_eq!(decimal_to_octal(83), 123);
 }
