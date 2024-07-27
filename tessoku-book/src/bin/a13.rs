@@ -10,23 +10,24 @@ fn main() {
     let mut a = vec![0];
     a.extend(a_buf);
 
-    let mut count = 0;
-    for i in 1..a.len() {
-        let mut l = i + 1;
-        let mut r = a.len();
-        while l < r {
-            let mid = (l + r) / 2;
-            if a[i] + k >= a[mid] {
-                l = mid + 1;
-            } else {
-                r = mid;
-            }
-        }
-        let t = l - 1;
-        if t > i && a[i] + k >= a[t] {
-            count += t - i;
+    let mut r: Vec<usize> = vec![0; a.len()];
+
+    for i in 1..r.len() {
+        if i == 1 {
+            r[i] = 1
+        } else {
+            r[i] = r[i - 1]
+        };
+
+        while r[i] < n && a[r[i] + 1] - a[i] <= k {
+            r[i] += 1;
         }
     }
 
-    println!("{}", count);
+    let mut answer = 0;
+
+    for i in 1..r.len() {
+        answer += r[i] - i;
+    }
+    println!("{}", answer);
 }
