@@ -31,6 +31,9 @@
 			"path": "abc201"
 		},
 		{
+			"path": "abc203"
+		},
+		{
 			"path": "tessoku-book"
 		}
 	],
@@ -45,6 +48,7 @@
 			"abc197/Cargo.toml",
 			"abc199/Cargo.toml",
 			"abc201/Cargo.toml",
+			"abc203/Cargo.toml",
 			"tessoku-book/Cargo.toml"
 		]
 	}
