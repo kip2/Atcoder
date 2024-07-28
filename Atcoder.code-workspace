@@ -4,6 +4,9 @@
 			"path": "."
 		},
 		{
+			"path": "abc148"
+		},
+		{
 			"path": "abc180"
 		},
 		{
@@ -39,6 +42,7 @@
 	],
 	"settings": {
 		"rust-analyzer.linkedProjects": [
+			"abc148/Cargo.toml",
 			"abc180/Cargo.toml",
 			"abc186/Cargo.toml",
 			"abc188/Cargo.toml",
