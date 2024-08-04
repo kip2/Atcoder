@@ -35,3 +35,34 @@ fn main() {
     // use superslice::Ext;
     a.lower_bound(&6);
 }
+
+/// 二分探索を行い、リスト内に存在しているかを探す関数
+fn binary_search(search_value: usize, n: usize, a: &Vec<usize>) -> bool {
+    let mut l = 0;
+    let mut r = n;
+
+    while l < r {
+        let m = (l + r) / 2;
+        if search_value < a[m] {
+            r = m
+        } else if search_value > a[m] {
+            l = m + 1
+        } else if search_value == a[m] {
+            return true;
+        }
+    }
+    false
+}
+
+/// 直積和を求める関数
+fn cartesian_sum(set1: &[usize], set2: &[usize]) -> Vec<usize> {
+    let mut sums = vec![];
+
+    for &item_a in set1 {
+        for &item_b in set2 {
+            sums.push(item_a + item_b);
+        }
+    }
+
+    sums
+}
