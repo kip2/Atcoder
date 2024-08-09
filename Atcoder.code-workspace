@@ -13,6 +13,9 @@
 			"path": "abc181"
 		},
 		{
+			"path": "abc182"
+		},
+		{
 			"path": "abc186"
 		},
 		{
@@ -51,6 +54,7 @@
 			"abc148/Cargo.toml",
 			"abc180/Cargo.toml",
 			"abc181/Cargo.toml",
+			"abc182/Cargo.toml",
 			"abc186/Cargo.toml",
 			"abc188/Cargo.toml",
 			"abc189/Cargo.toml",
