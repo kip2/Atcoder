@@ -1,3 +1,4 @@
+use itertools::Itertools;
 use proconio::input;
 
 fn main() {
@@ -27,14 +28,15 @@ fn main() {
         dp.push(std::cmp::min(a[i] + dp[i - 1], b[i] + dp[i - 2]));
     }
 
-    let mut p: Vec<i32> = vec![];
-
+    let mut answer: Vec<i32> = vec![];
     let mut i = n - 1;
+
     loop {
-        p.insert(0, i as i32 + 1);
+        answer.insert(0, i as i32 + 1);
         if i == 0 {
             break;
         }
+
         if dp[i - 1] + a[i] == dp[i] {
             i -= 1;
         } else {
@@ -42,10 +44,11 @@ fn main() {
         }
     }
 
-    println!("{}", p.len());
+    println!("{}", answer.len());
     println!(
         "{}",
-        p.iter()
+        answer
+            .iter()
             .map(|x| x.to_string())
             .collect::<Vec<String>>()
             .join(" ")
