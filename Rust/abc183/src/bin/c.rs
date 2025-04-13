@@ -1,4 +1,4 @@
-use itertools::Itertools;
+use itertools::{Itertools, Permutations};
 use proconio::input;
 
 fn main() {
@@ -17,11 +17,34 @@ fn main() {
     }
 
     // 経路のカウント用の変数を用意
+    let mut answer = 0;
 
     // 順列を生成する
+    let permutations = (0..n).permutations(n);
 
     // 順列でループ
     // 今いる都市、今の時間を初期化
+    for perm in permutations {
+        let mut now_city = 0;
+        let mut now_time = 0;
+        now_time += t[now_city][perm[0]];
+
+        now_city = perm[0];
+
+        for i in 1..n {
+            let to_city = perm[i];
+            now_time += t[now_city][to_city];
+            now_city = to_city;
+        }
+
+        now_time += t[now_city][0];
+
+        if now_time == k {
+            answer += 1;
+        }
+    }
+
+    println!("{}", answer / 2);
 
     // 今の都市から次の都市への時間をカウント
     // 今の年に次の歳をセット
