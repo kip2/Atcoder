@@ -22,7 +22,7 @@ mkdir -p "$TASK_ID"
 cp ./template/Main.hs "$TASK_ID/Main.hs"
 
 # copy shell script to execute test 
-cp ./template/test.sh "$TASK_ID/"
+cp ./template/run.sh "$TASK_ID/"
 
 # move sample data
 mv ./test "$TASK_ID/"
