@@ -1,3 +1,6 @@
 #!/bin/bash
 
-oj test -c "ruby main.rb"
+javac Main.java
+oj test -c "java Main"
+
+rm ./Main.class

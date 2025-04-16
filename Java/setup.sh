@@ -19,7 +19,7 @@ oj d "https://atcoder.jp/contests/$CONTEST_ID_LOWER/tasks/${CONTEST_ID_LOWER}_${
 mkdir -p "$TASK_ID"
 
 # copy clojure template file
-cp ./template/main.rb "$TASK_ID/main.rb"
+cp ./template/Main.java "$TASK_ID/Main.java"
 
 # copy shell script to execute test 
 cp ./template/run.sh "$TASK_ID/"
