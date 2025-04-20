@@ -5,11 +5,14 @@ import std.array;
 import std.conv;
 
 string solve(string input) {
-    return input;
+    string first = input[0 .. 1];
+    string rest = input[1 .. $];
+    return rest ~ first;
 }
 
 string getInput() {
-    return readln().strip();
+    string input = readln().strip();
+    return input;
 }
 
 int[] getInputOfIntArray() {
@@ -21,4 +24,3 @@ void main() {
 
     writeln(result);
 }
-
