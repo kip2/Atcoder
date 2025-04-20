@@ -1,18 +1,28 @@
 #include <stdio.h>
+#include <string.h>
+
+#define MAX_LEN 100
+
+char *get_input(char *buffer, int size)
+{
+  if (fgets(buffer, size, stdin))
+  {
+    buffer[strcspn(buffer, "\n")] = '\0';
+  }
+  return buffer;
+}
+
+void solve()
+{
+  return;
+}
 
 int main(void)
 {
-  int a, b, c;
-  scanf("%d %d %d", &a, &b, &c);
-
-  if (a * a + b * b < c * c)
-  {
-    printf("Yes\n");
-  }
-  else
-  {
-    printf("No\n");
-  }
-
+  // sample code
+  // char input[MAX_LEN];
+  // get_input(input, MAX_LEN);
+  // printf("input string: %s\n", input);
+  solve();
   return 0;
 }
