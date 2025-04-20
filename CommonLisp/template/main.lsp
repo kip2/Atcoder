@@ -1,4 +1,4 @@
-(defun split-by-space (line)
+(defun read-line-split-by-space (line)
   (let ((result '()))
     (with-input-from-string (in line)
       (loop for num = (read in nil)
@@ -6,15 +6,14 @@
             do (push num result)))
     (nreverse result)))
 
+(defun read-line-as-string ()
+  (read-line))
+
 (defun solve ()
   nil)
 
 (defun main ()
-  (let* ((line (read-line))
-         (nums (split-by-space line))
-         (a (first nums))
-         (b (second nums))
-         (c (third nums)))
-    (solve a b c)))
+  (let* ((line (read-line-split-by-space)))
+    (solve)))
 
 (main)
