@@ -1,6 +1,6 @@
 #!/bin/bash
 
-oj test -c "elixir mian.ex"
+oj test -c "elixir main.ex"
 
 
 
