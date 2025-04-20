@@ -16,4 +16,9 @@
   (let* ((line (read-line-split-by-space)))
     (solve)))
 
+; input sample code
+; (defun main ()
+;   (let ((input (read-line-as-string)))
+;     (format t "input: ~a~%" input)))
+
 (main)
