@@ -1,15 +1,18 @@
-def solve(a, b, c)
-  if a * a + b * b < c * c
-    puts "Yes"
-  else
-    puts "No"
-  end
+def get_numbers
+  gets.split.map(&:to_i)
+end
+
+def get_input_as_string
+  gets.chomp
+end
+
+def solve()
+
 end
 
 def main
-  line = gets
-  a, b, c = line.split.map(&:to_i)
-  solve(a, b, c)
+  input = get_input_as_string
+  puts input
 end
 
 main
