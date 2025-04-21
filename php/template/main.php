@@ -1,4 +1,13 @@
 <?php
+function get_input(): string
+{
+  return trim(fgets(STDIN));
+}
+
+function println($s): void
+{
+  echo ($s . "\n");
+}
 
 function solve($a, $b, $c)
 {
