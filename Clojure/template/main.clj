@@ -1,7 +1,19 @@
+(defn get-line
+  "Get input data."
+  []
+  (read-line))
+
+(defn split-words
+  "Returns an array of input data split by spaces."
+  []
+  (clojure.string/split (get-line) #" "))
+
 (defn solve []
-;; Todo: implemented your code!
+  ;; Todo: implemented your code!
   nil)
 
-(let [[a] (map #(Integer/parseInt %)
-               (clojure.string/split (read-line) #" "))]
+(defn main []
+  ;; Todo: implemented your code!
   (println (solve)))
+
+(main)
