@@ -5,6 +5,7 @@ class Program
     static void Main()
     {
         var line = Console.ReadLine()!;
+
         var parts = Array.ConvertAll(line.Split(), int.Parse);
         var a = parts[0];
         var b = parts[1];
