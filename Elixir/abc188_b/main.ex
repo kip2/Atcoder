@@ -1,0 +1,53 @@
+defmodule Main do
+  def main do
+    n = InputHelper.read_integer()
+    a_list = InputHelper.read_integer_list()
+    b_list = InputHelper.read_integer_list()
+
+    result = solve(a_list, b_list)
+    IO.puts(result)
+  end
+
+  def solve(a_list, b_list) do
+    Enum.zip(a_list, b_list)
+    |> Enum.map(fn {x, y} -> x * y end)
+    |> Enum.sum()
+    |> then(fn
+      0 -> "Yes"
+      _ -> "No"
+    end)
+  end
+end
+
+defmodule InputHelper do
+  @doc """
+  Get an integer from user input.
+
+  ## Parameters
+  None
+
+  ## Return value
+  - An integer value received from standard input.
+  """
+  def read_integer() do
+    IO.gets("") |> String.trim() |> String.to_integer()
+  end
+
+  @doc """
+  Get a list of integers from standard input.
+
+  ## Parameters
+  None
+
+  ## Return value
+  - A list of integers recieved from standard input.
+  """
+  def read_integer_list() do
+    IO.gets("")
+    |> String.trim()
+    |> String.split()
+    |> Enum.map(&String.to_integer/1)
+  end
+end
+
+Main.main()
