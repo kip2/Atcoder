@@ -4,24 +4,33 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	line := scanner.Text()
-	fields := strings.Fields(line)
+	// get input
 
-	// a, _ := strconv.Atoi(fields[0])
-	// b, _ := strconv.Atoi(fields[1])
-	// c, _ := strconv.Atoi(fields[2])
-
-	result := solve()
-
-	fmt.Println(result)
+	// output result value
+	// result := solve()
+	// fmt.Println(result)
 }
 
 func solve() {
 	// implement me!
+}
+
+func read_line() string {
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	text := scanner.Text()
+	return text
+}
+
+func read_input_list(n int) []int {
+	a := make([]int, n)
+
+	for i := 0; i < n; i++ {
+		fmt.Scan(&a[i])
+	}
+
+	return a
 }
