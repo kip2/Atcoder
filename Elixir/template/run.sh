@@ -1,6 +1,7 @@
 #!/bin/bash
 
-oj test -c "elixir main.ex"
+# compile
+mix compile
 
-
-
+# execute oj t
+oj test -d sample -c "mix run -e Main.main"
