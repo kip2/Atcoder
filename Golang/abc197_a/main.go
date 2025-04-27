@@ -6,10 +6,15 @@ import (
 	"os"
 )
 
-func main() {
+func read_line() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	text := scanner.Text()
+	return text
+}
+
+func main() {
+	text := read_line()
 
 	result := solve(text)
 
