@@ -1,21 +1,24 @@
+import scala.io.StdIn.readLine
+
 @main def Main(): Unit =
   // read a int value
-  // val sc = new java.util.Scanner(System.in)
-  // val n = sc.nextInt()
+  // val n = readInputInt()
+
+  // read a line to Int
+  // val a = readInputArray()
 
   // read line value
   // val lines = scala.io.StdIn.readLine()
 
-  val result = solve(lines)
+  val result = solve()
   println(result)
 
 def solve(input: String): String =
   // Todo: solve code
   input
 
-def readInputArray(sc: java.util.Scanner, n: Int): Array[Int] =
-  // example
-  // val sc = new java.util.Scanner(System.in)
-  // val a = readInputArray(sc, n)
-  // val b = readInputArray(sc, n)
-  Array.fill(n)(sc.nextInt())
+def readInputInt(): Int =
+  readLine().toInt
+
+def readInputArray(): Array[Int] =
+  readLine().split(" ").map(_.toInt)
