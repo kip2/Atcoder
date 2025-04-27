@@ -1,6 +1,6 @@
 defmodule Main do
   def main do
-    n = InputHelper.read_integer()
+    _ = InputHelper.read_line()
     a_list = InputHelper.read_integer_list()
     b_list = InputHelper.read_integer_list()
 
@@ -20,34 +20,18 @@ defmodule Main do
 end
 
 defmodule InputHelper do
-  @doc """
-  Get an integer from user input.
-
-  ## Parameters
-  None
-
-  ## Return value
-  - An integer value received from standard input.
-  """
-  def read_integer() do
-    IO.gets("") |> String.trim() |> String.to_integer()
+  def read_line() do
+    IO.read(:line)
   end
 
-  @doc """
-  Get a list of integers from standard input.
+  def read_integer() do
+    IO.read(:line) |> String.trim() |> String.to_integer()
+  end
 
-  ## Parameters
-  None
-
-  ## Return value
-  - A list of integers recieved from standard input.
-  """
   def read_integer_list() do
-    IO.gets("")
+    IO.read(:line)
     |> String.trim()
     |> String.split()
     |> Enum.map(&String.to_integer/1)
   end
 end
-
-Main.main()
