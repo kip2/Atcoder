@@ -7,6 +7,11 @@ local function read_inputs()
   return numbers
 end
 
+local function read_a_input()
+  local input = io.read("*l")
+  return input
+end
+
 local function solve()
 end
 
