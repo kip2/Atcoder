@@ -2,26 +2,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // case: input to int[]
-        // int[] inputs = getLineAsIntArray();
-        // System.out.println("input value: " + Arrays.toString(inputs));
+      Scanner sc = new Scanner(System.in);
+      // case: input to int[]
+      // int[] inputs = getLineAsIntArray(sc);
+      // System.out.println("input value: " + Arrays.toString(inputs));
 
-        // case: input to string
-        // String input = getLineAsString();
-        // System.out.println("input value: " + input);
+      // case: input to string
+      // String input = getLineAsString(sc);
+      // System.out.println("input value: " + input);
+      sc.close();
     }
 
-    public static String getLineAsString() {
-        Scanner sc = new Scanner(System.in);
+    public static String getLineAsString(Scanner sc) {
         String line = sc.nextLine();
-        sc.close();
         return line;
     }
 
-    public static int[] getLineAsIntArray() {
-      Scanner sc = new Scanner(System.in);
+    public static int[] getLineAsIntArray(Scanner sc) {
       String line = sc.nextLine();
-      sc.close();
 
       String[] tokens = line.trim().split("\\s+");
       int[] nums = new int[tokens.length];
