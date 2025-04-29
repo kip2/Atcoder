@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_INPUT 100
-#define MAX_NUMS 20
-
 int get_input_int() {
     int n;
     scanf("%d", &n);
