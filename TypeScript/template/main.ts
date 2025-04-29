@@ -1,14 +1,10 @@
-async function getInputToNumberArray(): Promise<number[]> {
+async function readAllInput(): Promise<string[]> {
     const input = await new Response(Deno.stdin.readable).text();
-    const lines = input.trim().split('\n');
-
-    const numbers = lines[0].split(' ').map(Number);
-    return numbers;
+    return input.trim().split('\n');
 }
 
-async function getInputToString(): Promise<string> {
-    const input = await new Response(Deno.stdin.readable).text();
-    return input.trim();
+function parseLineToNumbers(line: string): number[] {
+    return line.trim().split(' ').map(Number);
 }
 
 function solve(): string {
