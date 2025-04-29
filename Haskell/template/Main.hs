@@ -2,8 +2,15 @@ solve :: String
 solve =
   "Your solved code"
 
+readLineToInt :: IO Int
+readLineToInt = read <$> getLine
+
+readLineToIntArray :: IO [Int]
+readLineToIntArray = map read . words <$> getLine
+
 main :: IO ()
 main = do
-  line <- getLine
-  let [a, b, c] = map read $ words line :: [Int]
-  putStrLn $ solve
+  n <- readLineToInt
+  print n
+
+-- putStrLn $ solve
