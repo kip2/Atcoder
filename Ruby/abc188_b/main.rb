@@ -11,16 +11,8 @@ def get_input_as_int
 end
 
 def solve(n, a, b)
-  sum = 0
-  for i in 0...n 
-    sum += a[i] * b[i]
-  end
-
-  if sum == 0 
-    "Yes"
-  else
-    "No"
-  end
+  sum = a.zip(b).map { |x, y| x * y}.sum
+  sum == 0 ? "Yes" : "No"
 end
 
 def main
