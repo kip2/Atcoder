@@ -13,6 +13,10 @@ def get_input():
     return input()
 
 
+def get_input_int():
+    return int(input())
+
+
 def get_int_list():
     """
     Reads a line of input, splits it by whitespace, converts each token to an integer,
