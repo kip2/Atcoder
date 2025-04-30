@@ -6,6 +6,10 @@ def get_input_as_string
   gets.chomp
 end
 
+def get_input_as_int
+  gets.chomp.to_i
+end
+
 def solve()
 
 end
