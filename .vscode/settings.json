@@ -1,0 +1,9 @@
+{
+  "files.watcherExclude": {
+    "**/target": true
+  },
+  "rust-analyzer.linkedProjects": [
+    "Rust-oj/abc199_a/Cargo.toml",
+    "Rust-oj/abc197_a/Cargo.toml"
+  ],
+}
