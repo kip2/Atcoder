@@ -14,6 +14,12 @@ PROBLEM_SUFFIX=${TASK_ID##*_}
 CONTEST_ID_LOWER=$(echo "$CONTEST_ID" | tr '[:upper:]' '[:lower:]')
 PROBLEM_SUFFIX_LOWER=$(echo "$PROBLEM_SUFFIX" | tr '[:upper:]' '[:lower:]')
 
+if [ -d "$TASK_ID" ]; then
+    echo "ディレクトリが既に存在しています。"
+    exit 1
+fi
+
+
 oj d "https://atcoder.jp/contests/$CONTEST_ID_LOWER/tasks/${CONTEST_ID_LOWER}_${PROBLEM_SUFFIX_LOWER}"
 
 # mkdir -p "$TASK_ID"
