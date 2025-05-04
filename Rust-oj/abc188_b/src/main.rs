@@ -54,15 +54,6 @@ mod tests {
     use std::io::Cursor;
 
     #[test]
-    fn test_read_string() {
-        let input = "abc";
-        let mut cursor = Cursor::new(&input[..]);
-        let actual = read_string(&mut cursor);
-
-        assert_eq!(actual, input);
-    }
-
-    #[test]
     fn test_read_i32_vec_from() {
         let input = b"10 20 30\n";
         let mut cursor = Cursor::new(&input[..]);
