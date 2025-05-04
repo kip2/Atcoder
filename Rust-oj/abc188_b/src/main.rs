@@ -8,7 +8,8 @@ fn main() {
     let a = read_i32_vec(&mut lock);
     let b = read_i32_vec(&mut lock);
 
-    let result = solve(a, b);
+    // let result = solve(a, b);
+    let result = solve_fn_style(a, b);
     println!("{}", result)
 }
 
@@ -22,6 +23,14 @@ fn solve(a: Vec<i32>, b: Vec<i32>) -> String {
     }
 
     return "No".to_string();
+}
+
+fn solve_fn_style(a: Vec<i32>, b: Vec<i32>) -> String {
+    let sum = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();
+    match sum {
+        0 => "Yes".to_string(),
+        _ => "No".to_string(),
+    }
 }
 
 fn read_string<R: BufRead>(reader: &mut R) -> String {
