@@ -16,25 +16,19 @@ fn main() {
 
 fn solve() -> () {}
 
-fn read_string() -> String {
-    let stdin = io::stdin();
-    let mut lock = stdin.lock();
-    read_string_from(&mut lock)
-}
-
-fn read_string_from<R: BufRead>(reader: &mut R) -> String {
+fn read_string<R: BufRead>(reader: &mut R) -> String {
     let mut input = String::new();
     reader.read_line(&mut input).unwrap();
     input.trim().to_string()
 }
 
-fn read_i32_vec() -> Vec<i32> {
-    let stdin = io::stdin();
-    let mut lock = stdin.lock();
-    read_i32_vec_from(&mut lock)
+fn read_i32_single<R: BufRead>(reader: &mut R) -> i32 {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+    line.trim().parse::<i32>().unwrap()
 }
 
-fn read_i32_vec_from<R: BufRead>(reader: &mut R) -> Vec<i32> {
+fn read_i32_vec<R: BufRead>(reader: &mut R) -> Vec<i32> {
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
 
@@ -42,6 +36,7 @@ fn read_i32_vec_from<R: BufRead>(reader: &mut R) -> Vec<i32> {
         .map(|s| s.parse::<i32>().unwrap())
         .collect()
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;
