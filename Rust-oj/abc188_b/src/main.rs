@@ -33,12 +33,6 @@ fn solve_fn_style(a: Vec<i32>, b: Vec<i32>) -> String {
     }
 }
 
-fn read_string<R: BufRead>(reader: &mut R) -> String {
-    let mut input = String::new();
-    reader.read_line(&mut input).unwrap();
-    input.trim().to_string()
-}
-
 fn read_i32_single<R: BufRead>(reader: &mut R) -> i32 {
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
