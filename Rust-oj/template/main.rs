@@ -11,7 +11,9 @@ fn main() {
     // println!("{:?}", n);
     // println!("{:?}", a);
 
-    println!("{:?}", nums);
+    // output: solved value
+    // let value = solve(n, a);
+    // println!("{:?}", value);
 }
 
 fn solve() -> () {}
@@ -37,10 +39,27 @@ fn read_i32_vec<R: BufRead>(reader: &mut R) -> Vec<i32> {
         .collect()
 }
 
+fn into_string_from_i32_vec(v: Vec<i32>) -> String {
+    v.iter()
+        .map(|x| x.to_string())
+        .collect::<Vec<String>>()
+        .join(" ")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use std::io::Cursor;
+
+    #[test]
+    fn test_into_sring_from_i32_vec() {
+        let input = vec![1, 2, 3];
+        let expected = "1 2 3".to_string();
+
+        let actual = into_string_from_i32_vec(input);
+
+        assert_eq!(actual, expected);
+    }
 
     #[test]
     fn test_read_string() {
