@@ -2,15 +2,14 @@ use std::io::{self, BufRead};
 
 fn main() {
     let stdin = io::stdin();
-    let mut lines = stdin.lock().lines();
+    let mut lock = stdin.lock();
 
-    let nums: Vec<i32> = lines
-        .next()
-        .unwrap()
-        .unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
+    // sample: get input
+    // let n = read_i32_single(&mut lock);
+    // let a = read_i32_vec(&mut lock);
+
+    // println!("{:?}", n);
+    // println!("{:?}", a);
 
     println!("{:?}", nums);
 }
