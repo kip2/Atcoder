@@ -1,4 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +14,18 @@ public class Main {
       // String input = getLineAsString(sc);
       // System.out.println("input value: " + input);
       sc.close();
+    }
+
+    public static List<Integer> convIntArrayToList(int[] list) {
+      return Arrays.stream(list)
+                    .boxed()
+                    .collect(Collectors.toList());
+    }
+
+    public static String joinListInteger(List<Integer> list) {
+      return list.stream() 
+                  .map(String::valueOf)
+                  .collect(Collectors.joining(" "));
     }
 
     public static String getLineAsString(Scanner sc) {
