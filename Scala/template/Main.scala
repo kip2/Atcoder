@@ -10,12 +10,16 @@ import scala.io.StdIn.readLine
   // read line value
   // val lines = scala.io.StdIn.readLine()
 
-  val result = solve()
-  println(result)
+  // val result = solve()
+  // println(result)
+  println("Hello, Atcoder!")
 
 def solve(input: String): String =
   // Todo: solve code
   input
+
+def joinIntArray(arr: Array[Int]): String =
+  arr.mkString(" ")
 
 def readInputInt(): Int =
   readLine().toInt
