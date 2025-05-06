@@ -4,10 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
 	// get input
+	// s := read_line()
+	// nums := read_input_list(5)
 
 	// output result value
 	// result := solve()
@@ -16,6 +20,19 @@ func main() {
 
 func solve() {
 	// implement me!
+}
+
+func convIntArrToString(nums []int) string {
+	strs := convIntArrToStringArr(nums)
+	return strings.Join(strs, " ")
+}
+
+func convIntArrToStringArr(nums []int) []string {
+	strs := make([]string, len(nums))
+	for i, v := range nums {
+		strs[i] = strconv.Itoa(v)
+	}
+	return strs
 }
 
 func read_line() string {
