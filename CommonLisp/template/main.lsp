@@ -9,6 +9,17 @@
 (defun read-line-as-string ()
   (read-line))
 
+; Workd with both strings and numbers.
+(defun println-num (num)
+  (format t "~a~%" num))
+
+; Print list
+; example:
+; (println-lst '(1 2 3))
+; > 1 2 3
+(defun println-list (lst)
+  (format t "~{~a~^ ~}~%" lst))
+
 (defun solve ()
   nil)
 
@@ -18,7 +29,7 @@
 
 ; input sample code
 ; (defun main ()
-;   (let ((input (read-line-as-string)))
+;   (let ((input (read-line-as-string (read-line))))
 ;     (format t "input: ~a~%" input)))
 
 (main)
