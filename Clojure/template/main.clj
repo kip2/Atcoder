@@ -8,6 +8,9 @@
   []
   (clojure.string/split (get-line) #" "))
 
+(defn print-list [lst]
+  (println (clojure.string/join " " lst)))
+
 (defn solve []
   ;; Todo: implemented your code!
   nil)
