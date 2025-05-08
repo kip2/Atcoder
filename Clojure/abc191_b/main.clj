@@ -8,12 +8,15 @@
   []
   (clojure.string/split (get-line) #" "))
 
+(defn print-list [lst]
+  (println (clojure.string/join " " lst)))
+
 (defn solve [a x]
   (filter #(not (= % x)) a))
 
 (defn main []
   (let [x (second (split-words))
         a (split-words)]
-    (println (clojure.string/join " " (solve a x)))))
+    (print-list (solve a x))))
 
 (main)
