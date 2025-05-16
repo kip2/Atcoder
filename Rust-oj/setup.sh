@@ -14,8 +14,26 @@ PROBLEM_SUFFIX=${TASK_ID##*_}
 CONTEST_ID_LOWER=$(echo "$CONTEST_ID" | tr '[:upper:]' '[:lower:]')
 PROBLEM_SUFFIX_LOWER=$(echo "$PROBLEM_SUFFIX" | tr '[:upper:]' '[:lower:]')
 
+VSCODE_SETTINGS="../.vscode/settings.json"
+
 if [ -d "$TASK_ID" ]; then
     echo "ディレクトリが既に存在しています。"
+    exit 1
+fi
+
+# settings.json がなければ初期化
+if [ ! -f "$VSCODE_SETTINGS" ]; then
+    mkdir -p "$(dirname "$VSCODE_SETTINGS")"
+    echo '{ "rust-analyzer.linkedProjects": [], "files.watcherExclude": { "**/target": true } }' > "$VSCODE_SETTINGS"
+fi
+
+# json形式をチェックする
+error_output=$(mktemp)
+
+if ! jq empty "$VSCODE_SETTINGS" 2> "$error_output"; then
+    echo "❌ settings.json に構文エラーがあります"
+    cat "$error_output"
+    rm "$error_output"
     exit 1
 fi
 
@@ -48,11 +66,6 @@ mv ./test "$TASK_ID/"
 VSCODE_SETTINGS="../.vscode/settings.json"  # Rust-oj の一つ上のルートを想定
 PROJECT_PATH="Rust-oj/$TASK_ID/Cargo.toml"
 
-# settings.json がなければ初期化
-if [ ! -f "$VSCODE_SETTINGS" ]; then
-    mkdir -p "$(dirname "$VSCODE_SETTINGS")"
-    echo '{ "rust-analyzer.linkedProjects": [], "files.watcherExclude": { "**/target": true } }' > "$VSCODE_SETTINGS"
-fi
 
 # jq を使って追記（重複チェックあり）
 if ! grep -q "$PROJECT_PATH" "$VSCODE_SETTINGS"; then
