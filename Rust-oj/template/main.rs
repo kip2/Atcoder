@@ -65,7 +65,7 @@ mod tests {
     fn test_read_string() {
         let input = "abc";
         let mut cursor = Cursor::new(&input[..]);
-        let actual = read_string_from(&mut cursor);
+        let actual = read_string(&mut cursor);
 
         assert_eq!(actual, input);
     }
@@ -75,7 +75,7 @@ mod tests {
         let input = b"10 20 30\n";
         let mut cursor = Cursor::new(&input[..]);
 
-        let result = read_i32_vec_from(&mut cursor);
+        let result = read_i32_vec(&mut cursor);
         assert_eq!(result, vec![10, 20, 30]);
     }
 
@@ -84,7 +84,7 @@ mod tests {
         let input = b" 7 8 9 \n";
         let mut cursor = Cursor::new(&input[..]);
 
-        let result = read_i32_vec_from(&mut cursor);
+        let result = read_i32_vec(&mut cursor);
         assert_eq!(result, vec![7, 8, 9]);
     }
 }
