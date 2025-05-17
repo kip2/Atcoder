@@ -2,11 +2,11 @@ use std::io::{self, BufRead};
 
 fn main() {
     let stdin = io::stdin();
-    let mut lock = stdin.lock();
+    let mut reader = stdin.lock();
 
     // sample: get input
-    // let n = read_i32_single(&mut lock);
-    // let a = read_i32_vec(&mut lock);
+    // let n = read_i32_single(&mut reader);
+    // let a = read_i32_vec(&mut reader);
 
     // println!("{:?}", n);
     // println!("{:?}", a);
