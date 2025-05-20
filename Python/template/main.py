@@ -28,6 +28,10 @@ def get_int_list():
     return list(map(int, input().split))
 
 
+def join_space_int_list(lst):
+    return " ".join(map(str, lst))
+
+
 def main():
     print(solve())
 
