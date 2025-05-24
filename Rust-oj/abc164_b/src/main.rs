@@ -5,23 +5,23 @@ fn main() {
     let mut reader = stdin.lock();
 
     let values = read_i32_vec(&mut reader);
-    let (mut a, b, mut c, d) = (values[0], values[1], values[2], values[3]);
+    let (a, b, c, d) = (values[0], values[1], values[2], values[3]);
 
-    while a > 0 && c > 0 {
-        // Turn of TAKAHASHI
-        c -= b;
-        if c <= 0 {
-            println!("Yes");
-            return;
-        }
+    let result = solve(a, b, c, d);
+    println!("{}", result);
+}
 
-        // Turn of AOKI
-        a -= d;
-        if a <= 0 {
-            println!("No");
-            return;
-        }
+fn solve(a: i32, b: i32, c: i32, d: i32) -> &'static str {
+    let c = c - b;
+    if c <= 0 {
+        return "Yes";
     }
+
+    let a = a - d;
+    if a <= 0 {
+        return "No";
+    }
+    solve(a, b, c, d)
 }
 
 fn read_i32_vec<R: BufRead>(reader: &mut R) -> Vec<i32> {
