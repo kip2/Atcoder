@@ -9,6 +9,7 @@
     "Rust-oj/abc191_b/Cargo.toml",
     "Rust-oj/abc190_b/Cargo.toml",
     "Rust-oj/abc201_b/Cargo.toml",
-    "Rust-oj/abc164_b/Cargo.toml"
+    "Rust-oj/abc164_b/Cargo.toml",
+    "Rust-oj/abc197_b/Cargo.toml"
   ]
 }
