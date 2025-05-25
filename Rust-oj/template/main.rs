@@ -46,6 +46,15 @@ fn into_string_from_i32_vec(v: Vec<i32>) -> String {
         .join(" ")
 }
 
+fn read_usize_vec<R: BufRead>(reader: &mut R) -> Vec<usize> {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+
+    line.split_whitespace()
+        .map(|s| s.parse::<usize>().unwrap())
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
