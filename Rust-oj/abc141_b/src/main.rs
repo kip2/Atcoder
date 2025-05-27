@@ -9,39 +9,20 @@ fn main() {
 
     let s = read_string(&mut reader);
 
-    let odd_chars: HashSet<char> = s
-        .chars()
-        .enumerate()
-        .filter(|(i, _)| i % 2 == 0)
-        .map(|(_, c)| c)
-        .collect::<Vec<char>>()
+    let (odd_chars, even_chars): (HashSet<_>, HashSet<_>) =
+        s.chars().enumerate().partition(|(i, _)| i % 2 == 0);
+
+    let odd_valid = odd_chars
         .into_iter()
-        .collect();
-
-    let even_chars: HashSet<char> = s
-        .chars()
-        .enumerate()
-        .filter(|(i, _)| i % 2 != 0)
         .map(|(_, c)| c)
-        .collect::<Vec<char>>()
+        .all(|c| matches!(c, 'R' | 'U' | 'D'));
+
+    let even_valid = even_chars
         .into_iter()
-        .collect();
+        .map(|(_, c)| c)
+        .all(|c| matches!(c, 'L' | 'U' | 'D'));
 
-    let mut result = "Yes";
-
-    for c in odd_chars {
-        if c != 'R' && c != 'U' && c != 'D' {
-            result = "No";
-            break;
-        }
-    }
-
-    for c in even_chars {
-        if c != 'L' && c != 'U' && c != 'D' {
-            result = "No";
-            break;
-        }
-    }
+    let result = if odd_valid && even_valid { "Yes" } else { "No" };
 
     println!("{}", result);
 }
