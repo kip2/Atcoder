@@ -8,21 +8,27 @@ fn main() {
     let mut reader = stdin.lock();
 
     let s = read_string(&mut reader);
+    let bytes = s.as_bytes();
 
-    let (odd_chars, even_chars): (HashSet<_>, HashSet<_>) =
-        s.chars().enumerate().partition(|(i, _)| i % 2 == 0);
+    let mut result = "Yes";
 
-    let odd_valid = odd_chars
-        .into_iter()
-        .map(|(_, c)| c)
-        .all(|c| matches!(c, 'R' | 'U' | 'D'));
-
-    let even_valid = even_chars
-        .into_iter()
-        .map(|(_, c)| c)
-        .all(|c| matches!(c, 'L' | 'U' | 'D'));
-
-    let result = if odd_valid && even_valid { "Yes" } else { "No" };
+    for (i, &b) in bytes.iter().enumerate() {
+        match i % 2 {
+            0 => {
+                if b != b'R' && b != b'U' && b != b'D' {
+                    result = "No";
+                    break;
+                }
+            }
+            1 => {
+                if b != b'L' && b != b'U' && b != b'D' {
+                    result = "No";
+                    break;
+                }
+            }
+            _ => {}
+        }
+    }
 
     println!("{}", result);
 }
