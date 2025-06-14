@@ -8,14 +8,34 @@ fn main() {
     let a = line[0];
     let b = line[1];
 
-    let mut answer = 0 as i64;
-    for i in b..=a * b {
-        if i % a == 0 && i % b == 0 {
-            answer = i;
-            break;
-        }
-    }
+    let answer = lcm(a, b);
+
     println!("{}", answer);
+}
+
+fn lcm(a: i64, b: i64) -> i64 {
+    a * b / gcd(a, b)
+}
+
+fn gcd(a: i64, b: i64) -> i64 {
+    if a == b {
+        return b;
+    }
+    if a > b {
+        return gcd(a - b, b);
+    } else {
+        return gcd(a, b - a);
+    }
+}
+
+#[test]
+fn test_gcd() {
+    let expected: i64 = 5;
+    let small: i64 = 10;
+    let large: i64 = 15;
+
+    let result = gcd(small, large);
+    assert_eq!(expected, result);
 }
 
 fn read_i64_vec<R: BufRead>(reader: &mut R) -> Vec<i64> {
