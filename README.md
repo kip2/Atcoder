@@ -48,6 +48,6 @@ oj d https://atcoder.jp/contests/abc199/tasks/abc199_a
 テストする場合は、以下のコマンドで実行ができる。
 
 ```sh
-oj t
+oj t -c <command>
 ```
 
