@@ -4,116 +4,119 @@ fn main() {
     let stdin = io::stdin();
     let mut reader = stdin.lock();
 
-    let n = read_i64_single(&mut reader);
+    let n = read_string(&mut reader);
+    let k = n.len();
 
-    // println!("{:?}", n);
-    // println!("{:?}", a);
+    let numbers = to_u8_vec(&n);
+    let remainders = to_remainder_vec(&numbers);
+    let remainder_sum = sum_remainder_of_u8_vec(&numbers);
 
-    // output: solved value
-    // let value = solve(n, a);
-    // println!("{:?}", value);
+    let answer = match remainder_sum {
+        0 => "0",
+        1 => check_case(&remainders, k, 1),
+        2 => check_case(&remainders, k, 2),
+        _ => "0",
+    };
+
+    println!("{}", answer);
 }
 
-fn solve() -> () {}
+fn check_case(remainders: &Vec<u8>, k: usize, target: u8) -> &'static str {
+    let has_target = match target {
+        1 => has_remaider_1(remainders),
+        2 => has_remaider_2(remainders),
+        _ => false,
+    };
+
+    if has_target {
+        if k <= 1 {
+            "-1"
+        } else {
+            "1"
+        }
+    } else {
+        if k <= 2 {
+            "-1"
+        } else {
+            "2"
+        }
+    }
+}
+
+fn has_remaider_2(nums: &Vec<u8>) -> bool {
+    nums.iter().any(|&x| x == 2)
+}
+
+fn has_remaider_1(nums: &Vec<u8>) -> bool {
+    nums.iter().any(|&x| x == 1)
+}
+
+fn sum_remainder_of_u8_vec(nums: &Vec<u8>) -> u8 {
+    let sum: u8 = nums.iter().map(|n| n % 3).sum();
+    sum % 3
+}
+
+fn to_remainder_vec(nums: &Vec<u8>) -> Vec<u8> {
+    let remainders: Vec<u8> = nums.iter().map(|n| n % 3).collect();
+    remainders
+}
+
+fn to_u8_vec(s: &str) -> Vec<u8> {
+    let digits: Vec<u8> = s.chars().map(|c| c.to_digit(10).unwrap() as u8).collect();
+    digits
+}
+
+#[test]
+fn has_remaider_2_test() {
+    let numbers: Vec<u8> = vec![1, 2, 0, 1, 2];
+    let expected = true;
+    let actual = has_remaider_2(&numbers);
+
+    assert_eq!(actual, expected);
+
+    let numbers: Vec<u8> = vec![0, 1, 0, 0, 1];
+    let expected = false;
+    let actual = has_remaider_2(&numbers);
+
+    assert_eq!(actual, expected);
+}
+
+#[test]
+fn has_remaider_1_test() {
+    let numbers: Vec<u8> = vec![1, 2, 0, 1, 2];
+    let expected = true;
+    let actual = has_remaider_1(&numbers);
+
+    assert_eq!(actual, expected);
+
+    let numbers: Vec<u8> = vec![0, 2, 0, 0, 2];
+    let expected = false;
+    let actual = has_remaider_1(&numbers);
+
+    assert_eq!(actual, expected);
+}
+
+#[test]
+fn sum_remainder_of_u8_vec_test() {
+    let numbers: Vec<u8> = vec![1, 2, 3, 4, 5];
+    let expected = 6 as u8;
+    let actual = sum_remainder_of_u8_vec(&numbers);
+
+    assert_eq!(expected, actual);
+}
+
+#[test]
+fn to_u8_vec_test() {
+    let s = String::from("1234567890");
+
+    let actual = to_u8_vec(&s);
+    let expected: Vec<u8> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+    assert_eq!(expected, actual);
+}
 
 fn read_string<R: BufRead>(reader: &mut R) -> String {
     let mut input = String::new();
     reader.read_line(&mut input).unwrap();
     input.trim().to_string()
-}
-
-fn read_i64_single<R: BufRead>(reader: &mut R) -> i64 {
-    let mut line = String::new();
-    reader.read_line(&mut line).unwrap();
-    line.trim().parse::<i64>().unwrap()
-}
-
-fn read_i64_vec<R: BufRead>(reader: &mut R) -> Vec<i64> {
-    let mut line = String::new();
-    reader.read_line(&mut line).unwrap();
-
-    line.split_whitespace()
-        .map(|s| s.parse::<i64>().unwrap())
-        .collect()
-}
-
-fn into_string_from_i64_vec(v: Vec<i64>) -> String {
-    v.iter()
-        .map(|x| x.to_string())
-        .collect::<Vec<String>>()
-        .join(" ")
-}
-
-fn read_i32_single<R: BufRead>(reader: &mut R) -> i32 {
-    let mut line = String::new();
-    reader.read_line(&mut line).unwrap();
-    line.trim().parse::<i32>().unwrap()
-}
-
-fn read_i32_vec<R: BufRead>(reader: &mut R) -> Vec<i32> {
-    let mut line = String::new();
-    reader.read_line(&mut line).unwrap();
-
-    line.split_whitespace()
-        .map(|s| s.parse::<i32>().unwrap())
-        .collect()
-}
-
-fn into_string_from_i32_vec(v: Vec<i32>) -> String {
-    v.iter()
-        .map(|x| x.to_string())
-        .collect::<Vec<String>>()
-        .join(" ")
-}
-
-fn read_usize_vec<R: BufRead>(reader: &mut R) -> Vec<usize> {
-    let mut line = String::new();
-    reader.read_line(&mut line).unwrap();
-
-    line.split_whitespace()
-        .map(|s| s.parse::<usize>().unwrap())
-        .collect()
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use std::io::Cursor;
-
-    #[test]
-    fn test_into_sring_from_i32_vec() {
-        let input = vec![1, 2, 3];
-        let expected = "1 2 3".to_string();
-
-        let actual = into_string_from_i32_vec(input);
-
-        assert_eq!(actual, expected);
-    }
-
-    #[test]
-    fn test_read_string() {
-        let input = "abc";
-        let mut cursor = Cursor::new(&input[..]);
-        let actual = read_string(&mut cursor);
-
-        assert_eq!(actual, input);
-    }
-
-    #[test]
-    fn test_read_i32_vec_from() {
-        let input = b"10 20 30\n";
-        let mut cursor = Cursor::new(&input[..]);
-
-        let result = read_i32_vec(&mut cursor);
-        assert_eq!(result, vec![10, 20, 30]);
-    }
-
-    #[test]
-    fn test_read_i32_vec_from_with_extra_spaces() {
-        let input = b" 7 8 9 \n";
-        let mut cursor = Cursor::new(&input[..]);
-
-        let result = read_i32_vec(&mut cursor);
-        assert_eq!(result, vec![7, 8, 9]);
-    }
 }
