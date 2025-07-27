@@ -64,7 +64,7 @@ mv ./test "$TASK_ID/"
 # === VSCode Rust-analyzer settings 追記処理 ===
 
 VSCODE_SETTINGS="../.vscode/settings.json"  # Rust-oj の一つ上のルートを想定
-PROJECT_PATH="Rust-oj/$TASK_ID/Cargo.toml"
+PROJECT_PATH="Rust/$TASK_ID/Cargo.toml"
 
 
 # jq を使って追記（重複チェックあり）
