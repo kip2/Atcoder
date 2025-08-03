@@ -24,6 +24,27 @@ fn read_string<R: BufRead>(reader: &mut R) -> String {
     input.trim().to_string()
 }
 
+fn read_u64_single<R: BufRead>(reader: &mut R) -> u64 {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+    line.trim().parse::<u64>().unwrap()
+}
+
+fn read_u64_vec<R: BufRead>(reader: &mut R) -> Vec<u64> {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+
+    line.split_whitespace()
+        .map(|s| s.parse::<u64>().unwrap())
+        .collect()
+}
+
+fn into_string_from_u64_vec(v: Vec<u64>) -> String {
+    v.iter()
+        .map(|x| x.to_string())
+        .collect::<Vec<String>>()
+        .join(" ")
+}
 fn read_i64_single<R: BufRead>(reader: &mut R) -> i64 {
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
