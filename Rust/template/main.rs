@@ -89,6 +89,12 @@ fn into_string_from_i32_vec(v: Vec<i32>) -> String {
         .join(" ")
 }
 
+fn read_usize_single<R: BufRead>(reader: &mut R) -> usize {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+    line.trim().parse::<usize>().unwrap()
+}
+
 fn read_usize_vec<R: BufRead>(reader: &mut R) -> Vec<usize> {
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
