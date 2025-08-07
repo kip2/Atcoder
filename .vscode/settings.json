@@ -26,6 +26,7 @@
     "Rust/abc183_c/Cargo.toml",
     "Rust/abc193_c/Cargo.toml",
     "Rust/abc177_c/Cargo.toml",
-    "Rust/abc175_c/Cargo.toml"
+    "Rust/abc175_c/Cargo.toml",
+    "Rust/abc199_c/Cargo.toml"
   ]
 }
