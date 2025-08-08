@@ -104,6 +104,34 @@ fn read_usize_vec<R: BufRead>(reader: &mut R) -> Vec<usize> {
         .collect()
 }
 
+fn read_i128_single<R: BufRead>(reader: &mut R) -> i128 {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+    line.trim().parse::<i128>().unwrap()
+}
+
+fn read_i128_vec<R: BufRead>(reader: &mut R) -> Vec<i128> {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+
+    line.split_whitespace()
+        .map(|s| s.parse::<i128>().unwrap())
+        .collect()
+}
+fn read_u128_single<R: BufRead>(reader: &mut R) -> u128 {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+    line.trim().parse::<u128>().unwrap()
+}
+
+fn read_u128_vec<R: BufRead>(reader: &mut R) -> Vec<u128> {
+    let mut line = String::new();
+    reader.read_line(&mut line).unwrap();
+
+    line.split_whitespace()
+        .map(|s| s.parse::<u128>().unwrap())
+        .collect()
+}
 #[cfg(test)]
 mod tests {
     use super::*;
