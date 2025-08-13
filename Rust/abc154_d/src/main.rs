@@ -10,11 +10,7 @@ fn main() {
 
     let p_vec = read_i32_vec(&mut reader);
 
-    // let mut expected_vec: Vec<f64> = vec![];
-    let expected_vec: Vec<f64> = p_vec
-        .into_iter()
-        .map(|p| calc_expected_value(p as f64))
-        .collect();
+    let expected_vec: Vec<f64> = p_vec.into_iter().map(|p| (p as f64 + 1.0) / 2.0).collect();
 
     let mut pref: Vec<f64> = vec![0.0f64];
     for &ev in &expected_vec {
@@ -28,10 +24,6 @@ fn main() {
     }
 
     println!("{:.12}", max_ans);
-}
-
-fn calc_expected_value(n: f64) -> f64 {
-    (n + 1.0) / 2.0
 }
 
 fn read_i32_vec<R: BufRead>(reader: &mut R) -> Vec<i32> {
