@@ -51,3 +51,12 @@ oj d https://atcoder.jp/contests/abc199/tasks/abc199_a
 oj t -c <command>
 ```
 
+---
+
+# トラブルシーティング
+
+## ojなどでログインができない
+
+以下の記事を参考にすると良い
+https://qiita.com/namonaki/items/16cda635dd7c34496aaa
+https://github.com/key-moon/aclogin/blob/main/README.md
