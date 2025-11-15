@@ -35,6 +35,9 @@
     "Rust/dp_a/Cargo.toml",
     "Rust/abc431_a/Cargo.toml",
     "Rust/abc431_b/Cargo.toml",
-    "Rust/abc431_c/Cargo.toml"
+    "Rust/abc431_c/Cargo.toml",
+    "Rust/abc432_a/Cargo.toml",
+    "Rust/abc432_b/Cargo.toml",
+    "Rust/abc432_c/Cargo.toml"
   ]
 }
