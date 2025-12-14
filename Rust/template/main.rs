@@ -132,6 +132,9 @@ fn read_u128_vec<R: BufRead>(reader: &mut R) -> Vec<u128> {
         .map(|s| s.parse::<u128>().unwrap())
         .collect()
 }
+
+fn conv_vec_c_to_string(chars: Vec<chars>) -> String {}
+
 #[cfg(test)]
 mod tests {
     use super::*;
