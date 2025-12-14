@@ -1,18 +1,17 @@
-module dlang.abc190_b.main;
+module dlang.abc190_b.main_1;
 
 import std.stdio;
 import std.string;
 import std.algorithm;
 import std.array;
 import std.conv;
-import std.range;
 
-int[] readInts() {
+int[] getInputOfIntArray() {
     return readln().split().map!(to!int).array;
 }
 
 void main() {
-    int[] line = readInts();
+    int[] line = getInputOfIntArray();
 
     int n = line[0];
     int s = line[1];
@@ -24,10 +23,14 @@ void main() {
 }
 
 string solve(int n, int s, int d) {
-    bool result = iota(0, n)
-        .map!(_ => readInts())
-        .any!(m => m[0] < s && m[1] > d);
-    if (result)
-        return "Yes";
+    for (int i = 0; i < n; i++) {
+        int[] line = getInputOfIntArray();
+        int x = line[0];
+        int y = line[1];
+
+        if (x < s && y > d) {
+            return "Yes";
+        }
+    }
     return "No";
 }
