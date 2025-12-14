@@ -16,9 +16,12 @@ int[] getInputOfIntArray() {
     return readln().split().map!(to!int).array;
 }
 
+void printIntArr(int[] arr) {
+    writeln(arr.map!(to!string).join(" "));
+}
+
 void main() {
     string result = solve(getInput());
 
     writeln(result);
 }
-
