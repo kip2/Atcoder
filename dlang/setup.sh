@@ -29,6 +29,8 @@ cp ./template/main.d "$TASK_ID/main.d"
 
 # copy shell script to execute test 
 cp ./template/run.sh "$TASK_ID/"
+cp ./template/run.fish "$TASK_ID/"
+cp ./template/test.fish "$TASK_ID/"
 
 # move sample data
 mv ./test "$TASK_ID/"
