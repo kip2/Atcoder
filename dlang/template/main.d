@@ -8,6 +8,31 @@ string solve(string input) {
     return input;
 }
 
+void main() {
+    string result = solve(getInput());
+
+    writeln(result);
+}
+
+// --- getInt
+
+int getInt() {
+    return parseInt(readln());
+}
+
+int parseInt(string s) {
+    return s.strip.to!int;
+}
+
+unittest {
+    int expected = 3;
+    int actual = parseInt("3");
+
+    assert(actual == expected);
+}
+
+// ---
+
 string getInput() {
     return readln().strip();
 }
@@ -18,10 +43,4 @@ int[] getInputOfIntArray() {
 
 void printIntArr(int[] arr) {
     writeln(arr.map!(to!string).join(" "));
-}
-
-void main() {
-    string result = solve(getInput());
-
-    writeln(result);
 }
