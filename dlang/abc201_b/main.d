@@ -45,5 +45,5 @@ void main() {
 }
 
 Mountain[] sortMountainDesc(Mountain[] list) {
-    return list.sort!"a.height > b.height".array;
+    return list.sort!("a.height > b.height", SwapStrategy.stable).array;
 }
