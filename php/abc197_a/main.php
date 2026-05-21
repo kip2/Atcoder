@@ -7,7 +7,7 @@ function solve($s)
   return $tail . $head;
 }
 
-function get_input(): string
+function getInput(): string
 {
   return trim(fgets(STDIN));
 }
@@ -19,7 +19,7 @@ function println($s): void
 
 function main()
 {
-  $s = get_input();
+  $s = getInput();
   println(solve($s));
 }
 

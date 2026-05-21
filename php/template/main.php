@@ -1,5 +1,5 @@
 <?php
-function get_input(): string
+function getInput(): string
 {
   return trim(fgets(STDIN));
 }
