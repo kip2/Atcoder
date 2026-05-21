@@ -28,7 +28,8 @@ function get_input_int_arr(): array
 
 function solve($a, $b, $c)
 {
-  "";
+  $s = $a . $b . $c;
+  println($s);
 }
 
 function main()
