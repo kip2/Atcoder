@@ -63,6 +63,21 @@ oj s https://atcoder.jp/contests/abc199/tasks/abc199_a main.php
 
 ログインが必要な場合は親ディレクトリの README にあるトラブルシューティング参照。
 
+### 5. 本番風タイマー
+
+コンテスト相当の制限時間でカウントダウンしたいとき:
+
+```sh
+./timer.sh 100m      # ABC本番 (100分)
+./timer.sh 1h40m     # 同上 (時間指定でも可)
+./timer.sh 300       # 300秒
+./timer.sh 5m30s     # 5分30秒
+```
+
+- 残り時間がターミナルに表示される
+- 終了時に `notify-send` でデスクトップ通知 (mako等が必要)
+- `Ctrl+C` で中断可
+
 ## ディレクトリ構成
 
 ```
@@ -70,6 +85,7 @@ php/
 ├── README.md
 ├── mise.toml             # PHPバージョン固定
 ├── setup.sh              # 問題ディレクトリの初期化
+├── timer.sh              # 本番風カウントダウンタイマー
 ├── template/
 │   ├── main.php          # 解答テンプレート
 │   └── run.sh            # oj test 起動スクリプト
