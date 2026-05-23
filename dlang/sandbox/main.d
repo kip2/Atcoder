@@ -1,5 +1,3 @@
-module dlang.sandbox.main;
-
 import std.stdio;
 import std.array;
 import std.algorithm;

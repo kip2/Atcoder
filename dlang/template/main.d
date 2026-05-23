@@ -44,3 +44,11 @@ int[] getInputOfIntArray() {
 void printIntArr(int[] arr) {
     writeln(arr.map!(to!string).join(" "));
 }
+
+void assertEquals(T)(T actual, T expected, string label = "") {
+    import std.format : format;
+    string msg = label.length > 0
+        ? format("%s: expected %s but got %s", label, expected, actual)
+        : format("expected %s but got %s", expected, actual);
+    assert(actual == expected, msg);
+}

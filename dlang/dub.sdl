@@ -1,0 +1,4 @@
+name "atcoder-dlang"
+targetType "executable"
+targetName "main"
+sourcePaths "sandbox"
